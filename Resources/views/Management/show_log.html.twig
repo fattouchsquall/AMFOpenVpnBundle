@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta http-equiv='refresh' content='60' />
+{% endblock meta %}
+
+{% block content %}
+    <div class="show-log-container">
+        {% for key, server in servers %}
+            {% include 'AMFOpenVpnBundle:Management:log_server.html.twig' with {'server' : server, 'server_number' : key} %}
+        {% endfor %}
+    </div>
+{% endblock content %}

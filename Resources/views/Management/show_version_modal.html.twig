@@ -1,0 +1,49 @@
+{% trans_default_domain '' %}
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" id="show_version_label">
+                Serveur <strong>{{ server.name }}</strong>
+            </h4>
+        </div>
+        <div class="modal-body">
+            <div class="col-md-3">
+                <div>
+                    <strong>
+                        Etat actuel: 
+                    </strong>
+                </div>
+                <div>
+                    <strong>
+                        Adresse Ip:
+                    </strong>
+                </div>
+                <div>
+                    <strong>
+                        Version:
+                    </strong>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    {{ server.state.name }}
+                </div>
+                <div>
+                    {{ server.state.addressIp }}
+                </div>
+                <div>
+                    {{ server.version|raw }}
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="modal-footer"> 
+            <a class="btn btn-default" data-dismiss="modal">
+                Ok
+            </a>
+        </div>
+    </div>
+    <!-- /.modal-content --> 
+</div>
+<!-- /.modal-dialog --> 

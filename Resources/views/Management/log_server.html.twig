@@ -1,0 +1,35 @@
+<div>
+    {% if server.result == true %}
+        <h2>
+            Le journal pour le serveur: {{ server.name|capitalize }}
+        </h2>
+        <div class="row">
+            <table id="log_table" class="table table-striped">
+                <thead>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Interface
+                    </th>
+                    <th>
+                        Message
+                    </th>
+                </thead>
+                <tbody>
+                    {% for log in server.logs.info %}
+                        <tr>
+                            <td>{{ log.date }}</td>
+                            <td>{{ log.interface }}</td>
+                            <td>{{ log.message }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="alert alert-danger">
+            Impossible de se connecter au serveur {{ server.name }}.
+        </div>
+    {% endif %}
+</div>

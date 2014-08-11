@@ -1,0 +1,21 @@
+amf_open_vpn_server_management_home:
+    pattern:  /liste
+    defaults: { _controller: AMFOpenVpnBundle:ServerManagement:index }
+
+amf_open_vpn_server_management_retrieve_infos:
+    pattern:  /info/{number}
+    defaults: { _controller: AMFOpenVpnBundle:ServerManagement:retrieveInfosOfServer, number:"" }
+
+amf_open_vpn_server_management_kill_client:
+    pattern:  /deconnecter-client/{serverNumber}/{cn}
+    defaults: { _controller: AMFOpenVpnBundle:ServerManagement:killClient, serverNumber:"", cn:"" }
+    
+amf_open_vpn_server_management_show_log:
+    pattern:  /journal
+    defaults: { _controller: AMFOpenVpnBundle:ServerManagement:showLog, serverNumber:"" }
+    
+amf_open_vpn_server_management_show_version:
+    pattern:  /version/{serverNumber}
+    defaults: { _controller: AMFOpenVpnBundle:ServerManagement:showVersion }
+    options:
+       expose: true

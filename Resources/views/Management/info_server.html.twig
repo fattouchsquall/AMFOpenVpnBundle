@@ -1,0 +1,50 @@
+<div>
+    {% if server.result == true %}
+        <h2>
+            Liste des clients pour le serveur: {{ server.name|capitalize }}
+            <em class="bold show-version">
+                <a data-remote="{{ path('amf_open_vpn_management_show_version', {'serverNumber' : server_number}) }}" data-toggle="modal" class="view-modal">
+                    (à propos ?)
+                </a>
+            </em>
+        </h2>
+        <table class="table table-striped">
+            <thead>
+                <th>Adresse client</th>
+                <th>Nom</th>
+                <th>Adresse réelle</th>
+                <th>Dernière activité</th>
+                <th>Données réçues</th>
+                <th>Données envoyées</th>
+                <th>Connecté depuis</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                {% if server.clients|length > 0 %}
+                    {% for key, client in server.clients %}
+                        {% for key,info_client in client %}
+                            {% if key == 4 and key == 7  %}
+                                <td>{{ info_client|localizeddate('full', 'none', app.request.locale, null, "dd MMM HH:mm") }}</td>
+                            {% else %}
+                                <td>{{ info_client }}</td>
+                            {% endif %}
+                        {% endfor %}
+                        <td>
+                            <a href="{{ path('amf_open_vpn_management_kill_client', {'cn':client[1], 'serverNumber':server_number}) }}">Déconnecter</a>
+                        </td>
+                    {% endfor %}
+                {% else %}
+                    <td colspan="8">
+                        <div class="text-center">
+                            Pas de clients connectés!
+                        </div>
+                    </td>
+                {% endif %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-danger">
+            Impossible de se connecter au serveur {{ server.name }}.
+        </div>
+    {% endif %}
+</div>
