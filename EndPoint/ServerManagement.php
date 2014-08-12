@@ -15,7 +15,7 @@ namespace AMF\OpenVpnBundle\EndPoint;
  * @subpackage EndPoint
  * @author Mohamed Amine Fattouch <amine.fattouch@gmail.com>
  */
-class ServerManagement
+class ServerManagement implements ServerManagementInterface
 {
 
     /**
@@ -187,7 +187,7 @@ class ServerManagement
             $lineData = explode(',', $line);
             if (array_key_exists(2, $lineData))
             {
-                $infoData = split(':' , $lineData[2]);
+                $infoData = split(':', $lineData[2]);
                 if ($lineData[1] === ''  && array_key_exists(1, $infoData))
                 {
                     $date           = date('H:m:s d/m/Y', $lineData[0]);
@@ -268,7 +268,7 @@ class ServerManagement
         usleep(250000);
         
         $addressIp = '';
-        $stateName     = '';
+        $stateName = '';
         while (!feof($fp))
         {
             $line = fgets($fp, 128);
@@ -277,7 +277,7 @@ class ServerManagement
             {
                 continue;
             }
-            $lineData = explode(',', $line);
+            $lineData  = explode(',', $line);
             $addressIp = $lineData[3];
             $stateName = $lineData[1];
             break;

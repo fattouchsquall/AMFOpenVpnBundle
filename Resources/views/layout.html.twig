@@ -1,25 +1,4 @@
-{% extends "::base.html.twig" %}
-
-{% block content %}
-        <div class="col-md-12">
-            {% for flashMessage in app.session.flashbag.get('success') %}
-                <div class="alert alert-success">
-                    {{ flashMessage }}
-                </div>
-            {% endfor %}
-            {% for flashMessage in app.session.flashbag.get('error') %}
-                <div class="alert alert-danger">
-                    {{ flashMessage }}
-                </div>
-            {% endfor %}
-            <h3 class="page-header">
-                {% block page_header %}{% endblock page_header %}
-            </h3>
-            {% block main_content %}{% endblock main_content %}
-        </div>
-{% endblock content %}
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 {% block html %}
 <!DOCTYPE html>
 <html lang="fr">
