@@ -1,0 +1,94 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+        <div class="col-md-12">
+            {% for flashMessage in app.session.flashbag.get('success') %}
+                <div class="alert alert-success">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+            {% for flashMessage in app.session.flashbag.get('error') %}
+                <div class="alert alert-danger">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+            <h3 class="page-header">
+                {% block page_header %}{% endblock page_header %}
+            </h3>
+            {% block main_content %}{% endblock main_content %}
+        </div>
+{% endblock content %}
+
+ <!DOCTYPE html>
+{% block html %}
+<!DOCTYPE html>
+<html lang="fr">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title %}
+                {{ site_name }}
+            {% endblock title %}
+        </title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block stylesheets %}{% endblock stylesheets %}  
+    </head>
+    
+    {% block body %}
+        <body>
+            <div id="wrap">
+                {% block header %}
+                    {# header container  #}
+                    <header>
+                        <div id="header" class="navbar navbar-default">
+                            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                                <ul class="nav navbar-nav navbar-left">
+                                    <li>
+                                        <a href="{{ path('amf_open_vpn_management_home') }}">
+                                            {{ 'header.bar.nav.vpn.monitoring'|trans }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('amf_open_vpn_management_show_log') }}">
+                                            {{ 'header.bar.nav.vpn.logs'|trans }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </header>
+                {% endblock header %}
+                {# main container #}
+                <div id="main" class="container">
+                    {% block content %}{% endblock content %}
+                    <div id="view_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+                </div>
+            </div>
+            {% block footer %}
+                <div class="container">
+                    <div class="footer-wrapper">
+                        <div class="first-content pull-left">
+                            <a href="#">
+                                <div class="footer-logo"></div>
+                            </a>
+                            <span class="copyright">
+                                &copy; {{ 'now'|date("    Y") }} {{ site_name }}. {{ 'footer.label.copyrights'|trans }}
+                            </span>
+                        </div>  
+                        <div class="second-content pull-right">
+                            <div class="footer-link pull-left">
+                                <a class="" href="">
+                                    {{ 'footer.nav.help'|trans }}
+                                </a>
+                            </div>       
+                        </div>
+                    </div>
+                </div>
+            {% endblock footer %}
+            {% block javascripts %}{% endblock javascripts %}
+        </body>
+    {% endblock body %}
+</html>  
+{% endblock html %}

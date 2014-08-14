@@ -1,0 +1,24 @@
+{% extends 'AMFOpenVpnBundle::layout.html.twig' %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta http-equiv='refresh' content='{{ page_reload }}' />
+{% endblock meta %}
+
+{% block main_content %}
+    <div class="list-servers-container">
+        <div>
+            {% for key, server in servers %}
+                {% include 'AMFOpenVpnBundle:Management:info_server.html.twig' with {'server' : server, 'server_number' : key} %}
+            {% endfor %}
+        </div>
+        <div class="alert alert-info col-md-4 pull-right">
+            <div>
+                Cette page sera rechargé toutes les {{ page_reload }} minutes
+            </div> 
+            <div>
+                Dernière mise à jour: {{ "now"|date("Y-m-d H:i:s") }} 
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}
