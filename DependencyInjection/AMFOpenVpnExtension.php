@@ -31,7 +31,7 @@ class AMFOpenVpnExtension extends Extension
         
         if (isset($config['config']))
         {
-            $this->remapParametersNamespaces($config, $container, array('config' => 'amf_open_vpn.config.%s')); 
+            $this->remapParametersNamespaces($config, $container, array('config' => 'amf_openvpn.config.%s')); 
         }
         
         $loader->load('server_management.yml');

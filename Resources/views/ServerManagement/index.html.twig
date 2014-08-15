@@ -1,5 +1,7 @@
 {% extends 'AMFOpenVpnBundle::layout.html.twig' %}
 
+{% trans_default_domain 'AMFOpenVpnBundle' %}
+
 {% block meta %}
     {{ parent() }}
     <meta http-equiv='refresh' content='{{ page_reload }}' />
@@ -9,7 +11,7 @@
     <div class="list-servers-container">
         <div>
             {% for key, server in servers %}
-                {% include 'AMFOpenVpnBundle:Management:info_server.html.twig' with {'server' : server, 'server_number' : key} %}
+                {% include 'AMFOpenVpnBundle:ServerManagement:info_server.html.twig' with {'server' : server, 'server_number' : key} %}
             {% endfor %}
         </div>
         <div class="alert alert-info col-md-4 pull-right">

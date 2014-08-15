@@ -1,4 +1,6 @@
-{% extends '::base.html.twig' %}
+{% trans_default_domain 'AMFOpenVpnBundle' %}
+
+{% extends 'AMFOpenVpnBundle::layout.html.twig' %}
 
 {% block meta %}
     {{ parent() }}
@@ -8,7 +10,7 @@
 {% block content %}
     <div class="show-log-container">
         {% for key, server in servers %}
-            {% include 'AMFOpenVpnBundle:Management:log_server.html.twig' with {'server' : server, 'server_number' : key} %}
+            {% include 'AMFOpenVpnBundle:ServerManagement:log_server.html.twig' with {'server' : server, 'server_number' : key} %}
         {% endfor %}
     </div>
 {% endblock content %}
