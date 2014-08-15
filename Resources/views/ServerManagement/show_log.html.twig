@@ -7,10 +7,10 @@
     <meta http-equiv='refresh' content='60' />
 {% endblock meta %}
 
-{% block content %}
+{% block amf_openvpn_content %}
     <div class="show-log-container">
         {% for key, server in servers %}
             {% include 'AMFOpenVpnBundle:ServerManagement:log_server.html.twig' with {'server' : server, 'server_number' : key} %}
         {% endfor %}
     </div>
-{% endblock content %}
+{% endblock amf_openvpn_content %}
