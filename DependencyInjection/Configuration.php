@@ -67,7 +67,7 @@ class Configuration implements ConfigurationInterface
     {       
         $node
             ->children()
-                ->arrayNode('conf')
+                ->arrayNode('config')
                     ->addDefaultsIfNotSet()
                     ->canBeUnset()
                     ->children()
