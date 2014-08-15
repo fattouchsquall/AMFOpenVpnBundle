@@ -1,5 +1,5 @@
 {
-    "name": "amf/open-vpn-bundle",
+    "name": "amf/openvpn-bundle",
     "description": "A bundle for management of openvpn servers",
     "type": "symfony-bundle",
     "keywords": ["OpenVpn", "Telnet", "Vpn", "VpnServer", "OpenVpnServer"],
