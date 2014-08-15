@@ -74,9 +74,9 @@ assign a name to every server:
 amf_openvpn:
     servers:
         1: 
+            name: "my first server"
             telnet_ip: "127.0.0.1"
             telnet_port: "7500"
-            name: "my first server"
 ```
 
 [Read the whole configuration reference](01-config-reference.md)
