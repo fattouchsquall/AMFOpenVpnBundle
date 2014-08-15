@@ -32,7 +32,7 @@ class ServerManagementController extends Controller
         $serverManagement = $this->get('amf_openvpn.server_management');
         $servers          = $serverManagement->retrieveInfoOfAllServers();
 
-        $pageReload = $this->container->getParameter('amf_open_vpn.config.reload');
+        $pageReload = $this->container->getParameter('amf_openvpn.config.reload');
         return $this->render('AMFOpenVpnBundle:ServerManagement:index.html.twig',
                         array('servers' => $servers, 'page_reload' => $pageReload));
     }

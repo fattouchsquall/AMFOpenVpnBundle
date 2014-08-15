@@ -26,7 +26,7 @@ class AMFOpenVpnExtension extends Extension
         
         if (isset($config['servers']))
         {
-            $container->setParameter('amf_open_vpn.servers', $config['servers']);
+            $container->setParameter('amf_openvpn.servers', $config['servers']);
         }
         
         if (isset($config['config']))
