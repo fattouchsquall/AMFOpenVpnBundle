@@ -13,7 +13,12 @@ Documentation
 
 Documentation for this bundle is stored under `Resources/doc` in this repository.
 
-[Read the documentation for master](https://github.com/fattouchsquall/AMFOpenVpnBundle/tree/master/Resources/doc/index.md)
+For documentation, see:
+
+    Resources/doc/
+
+[Read the
+documentation](https://github.com/fattouchsquall/AMFOpenVpnBundle/tree/master/Resources/doc/index.md)
 
 Installation
 ------------
