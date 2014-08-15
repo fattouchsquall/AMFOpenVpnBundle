@@ -10,10 +10,11 @@ namespace AMF\OpenVPNBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
+ * Controller for server management.
+ * 
  * @package AMFOpenVpnBundle
  * @subpackage Controller
  * @author Mohamed Amine Fattouch <amine.fattouch@gmail.com>
@@ -28,11 +29,11 @@ class ServerManagementController extends Controller
      */
     public function indexAction()
     {
-        $serverManagement = $this->get('amf_open_vpn.server_management');
+        $serverManagement = $this->get('amf_openvpn.server_management');
         $servers          = $serverManagement->retrieveInfoOfAllServers();
 
         $pageReload = $this->container->getParameter('amf_open_vpn.config.reload');
-        return $this->render('AMFOpenVpnBundle:Management:index.html.twig',
+        return $this->render('AMFOpenVpnBundle:ServerManagement:index.html.twig',
                         array('servers' => $servers, 'page_reload' => $pageReload));
     }
     
@@ -45,10 +46,10 @@ class ServerManagementController extends Controller
      */
     public function retrieveInfosOfServerAction($number)
     {
-        $serverManagement = $this->get('amf_open_vpn.server_management');
+        $serverManagement = $this->get('amf_openvpn.server_management');
         $server           = $serverManagement->retrieveInfoOfServer($number);
 
-        return $this->render('AMFOpenVpnBundle:Management:info_server.html.twig',
+        return $this->render('AMFOpenVpnBundle:ServerManagement:info_server.html.twig',
                         array('server' => $server));
     }
 
@@ -62,7 +63,7 @@ class ServerManagementController extends Controller
      */
     public function killClientAction($serverNumber, $cn)
     {
-        $serverManagement = $this->get('amf_open_vpn.server_management');
+        $serverManagement = $this->get('amf_openvpn.server_management');
         $killed           = $serverManagement->killClient($serverNumber, $cn);
         if ($killed === true)
         {
@@ -79,7 +80,7 @@ class ServerManagementController extends Controller
             );
         }
         
-        $url = $this->generateUrl('amf_open_vpn_management_home');
+        $url = $this->generateUrl('amf_openvpn_server_management_home');
         return $this->redirect($url);
     }
     
@@ -90,10 +91,10 @@ class ServerManagementController extends Controller
      */
     public function showLogAction()
     {
-        $serverManagement = $this->get('amf_open_vpn.server_management');
+        $serverManagement = $this->get('amf_openvpn.server_management');
         $servers          = $serverManagement->retrieveLogOfAllServers();
         
-        return $this->render('AMFOpenVpnBundle:Management:show_log.html.twig', 
+        return $this->render('AMFOpenVpnBundle:ServerManagement:show_log.html.twig', 
                         array('servers' => $servers));
     }
     
@@ -104,18 +105,13 @@ class ServerManagementController extends Controller
      * 
      * @return Response
      */
-    public function showVersionAction(Request $request, $serverNumber)
+    public function showVersionAction($serverNumber)
     {
-        if ($request->isXmlHttpRequest())
-        {   
-            $serverManagement = $this->get('amf_open_vpn.server_management');
-            $server           = $serverManagement->retrieveVersionOfServer($serverNumber);
+        $serverManagement = $this->get('amf_openvpn.server_management');
+        $server           = $serverManagement->retrieveVersionOfServer($serverNumber);
         
-            return $this->render('AMFOpenVpnBundle:Management:show_version_modal.html.twig', 
+        return $this->render('AMFOpenVpnBundle:ServerManagement:show_version.html.twig', 
                         array('server' => $server));
-        }
-        
-        return new Response();
     }
 }
 

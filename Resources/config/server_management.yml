@@ -1,8 +1,8 @@
 parameters:
-    amf_open_vpn.server_management.class: AMF\OpenVpnBundle\EndPoint\ServerManagement
+    amf_openvpn.server_management.class: AMF\OpenVpnBundle\EndPoint\ServerManagement
     
 services:
-    amf_open_vpn.server_management: 
-        class: %amf_open_vpn.server_management.class%
-        arguments: [%amf_open_vpn.servers%]
+    amf_openvpn.server_management: 
+        class: %amf_openvpn.server_management.class%
+        arguments: [%amf_openvpn.servers%]
 

@@ -1,9 +1,13 @@
+{% extends 'AMFOpenVpnBundle::layout.html.twig' %}
+
+{% trans_default_domain 'AMFOpenVpnBundle' %}
+
 <div>
     {% if server.result == true %}
         <h2>
             Liste des clients pour le serveur: {{ server.name|capitalize }}
             <em class="bold show-version">
-                <a data-remote="{{ path('amf_open_vpn_management_show_version', {'serverNumber' : server_number}) }}" data-toggle="modal" class="view-modal">
+                <a data-remote="{{ path('amf_openvpn_server_management_show_version', {'serverNumber' : server_number}) }}" data-toggle="modal" class="view-modal">
                     (à propos ?)
                 </a>
             </em>
@@ -30,7 +34,7 @@
                             {% endif %}
                         {% endfor %}
                         <td>
-                            <a href="{{ path('amf_open_vpn_management_kill_client', {'cn':client[1], 'serverNumber':server_number}) }}">Déconnecter</a>
+                            <a href="{{ path('amf_openvpn_server_management_kill_client', {'cn':client[1], 'serverNumber':server_number}) }}">Déconnecter</a>
                         </td>
                     {% endfor %}
                 {% else %}
