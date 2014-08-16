@@ -1,5 +1,3 @@
-{% extends 'AMFOpenVpnBundle::layout.html.twig' %}
-
 {% trans_default_domain 'AMFOpenVpnBundle' %}
 
 <div>
@@ -27,11 +25,7 @@
                 {% if server.clients|length > 0 %}
                     {% for key, client in server.clients %}
                         {% for key,info_client in client %}
-                            {% if key == 4 and key == 7  %}
-                                <td>{{ info_client|localizeddate('full', 'none', app.request.locale, null, "dd MMM HH:mm") }}</td>
-                            {% else %}
-                                <td>{{ info_client }}</td>
-                            {% endif %}
+                            <td>{{ info_client }}</td>
                         {% endfor %}
                         <td>
                             <a href="{{ path('amf_openvpn_server_management_kill_client', {'cn':client[1], 'serverNumber':server_number}) }}">Déconnecter</a>
