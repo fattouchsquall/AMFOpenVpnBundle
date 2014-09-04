@@ -187,7 +187,7 @@ class ServerManagement
             $lineData = explode(',', $line);
             if (array_key_exists(2, $lineData))
             {
-                $infoData = split(':' , $lineData[2]);
+                $infoData = preg_split('#(?<!\\\)\:#' , $lineData[2]);
                 if ($lineData[1] === ''  && array_key_exists(1, $infoData))
                 {
                     $date           = date('H:m:s d/m/Y', $lineData[0]);
@@ -318,5 +318,4 @@ class ServerManagement
         
         return $fp;
     }
-
 }
