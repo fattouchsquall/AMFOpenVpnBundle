@@ -1,3 +1,4 @@
 amf_openvpn_server_management:
     resource: "@AMFOpenVpnBundle/Resources/config/routing/server_management.yml"
     prefix:   /serveur
+    

@@ -17,3 +17,4 @@ amf_openvpn_server_management_show_log:
 amf_openvpn_server_management_show_version:
     pattern:  /version/{serverNumber}
     defaults: { _controller: AMFOpenVpnBundle:ServerManagement:showVersion, serverNumber:"" }
+    
