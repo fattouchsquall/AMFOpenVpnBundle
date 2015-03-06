@@ -9,11 +9,11 @@ amf_openvpn_server_management_retrieve_infos:
 amf_openvpn_server_management_kill_client:
     pattern:  /deconnecter-client/{serverNumber}/{cn}
     defaults: { _controller: AMFOpenVpnBundle:ServerManagement:killClient, serverNumber:"", cn:"" }
-
+    
 amf_openvpn_server_management_show_log:
     pattern:  /journal
     defaults: { _controller: AMFOpenVpnBundle:ServerManagement:showLog, serverNumber:"" }
-
+    
 amf_openvpn_server_management_show_version:
     pattern:  /version/{serverNumber}
     defaults: { _controller: AMFOpenVpnBundle:ServerManagement:showVersion, serverNumber:"" }
