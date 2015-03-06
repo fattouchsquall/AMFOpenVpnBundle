@@ -15,14 +15,11 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Functional test for the controller of server management.
- * 
- * @package AMFOpenVpnBundle
- * @subpackage Controller
+ *
  * @author Mohamed Amine Fattouch <amine.fattouch@gmail.com>
  */
 class ManagementControllerTest extends WebTestCase
 {
-    
     /**
      * Test the action of retrieve infos of server.
      */
@@ -31,7 +28,7 @@ class ManagementControllerTest extends WebTestCase
         $client = static::createClient();
 
         $$client->request('GET', '/serveur/info/1');
-        
+
         $this->assertTrue($client->getResponse()->isOk());
     }
 }
