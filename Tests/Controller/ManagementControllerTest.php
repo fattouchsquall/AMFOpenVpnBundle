@@ -1,12 +1,14 @@
 <?php
 
-/**
- * Functional test for the controller of server management.
- * 
- * @package AMFOpenVpnBundle
- * @subpackage Controller
- * @author Mohamed Amine Fattouch <amine.fattouch@gmail.com>
+/*
+ * This file is part of the AMFOpenVpnBundle package.
+ *
+ * (c) Amine Fattouch <http://github.com/fattouchsquall>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
+
 namespace AMF\OpenVpnBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
